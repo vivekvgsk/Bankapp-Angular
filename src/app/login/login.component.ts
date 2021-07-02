@@ -35,10 +35,10 @@ pwd="";
     
 
   }
-
-  login(){
-    var acno=this.accno;
-    var pswd=this.pwd
+  //LOGIN USING TEMPLATE VARIABLE
+  login(a:any,p:any){
+    var acno=a.value;
+    var pswd=p.value;
     var accDetails=this.users;
     if (acno in accDetails){
       if(pswd == accDetails[acno]["password"]){
@@ -56,3 +56,25 @@ pwd="";
     alert("login successful");
   }
 }
+
+
+//   login(){
+//     var acno=this.accno;
+//     var pswd=this.pwd
+//     var accDetails=this.users;
+//     if (acno in accDetails){
+//       if(pswd == accDetails[acno]["password"]){
+//         alert("login successfull");
+//       }
+//       else{
+//         alert("invalid password");
+//       }
+    
+//     }
+//     else{
+//       alert("invalid user");
+//     }
+
+//     alert("login successful");
+//   }
+// }

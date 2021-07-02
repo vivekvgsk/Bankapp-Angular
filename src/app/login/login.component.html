@@ -5,11 +5,16 @@
             <h4>{{aim}}</h4>
             <h2>Sign In</h2><hr>
            
+            <!-- LOGIN USING TEMPLATE VARIABLE -->
+            <!-- <input type="text" class="items" id="uname" #accno (change)="accChange($event)"  [value]="account" placeholder="USERNAME"><br>
+            <input type="password" class="items" id="pwd" #pswd (change)="pwdChange($event)"  placeholder="PASSWORD"><br>
             
-            <input type="text" class="items" id="uname" (change)="accChange($event)"  [value]="account" placeholder="USERNAME"><br>
-            <input type="password" class="items" id="pwd" (change)="pwdChange($event)"  placeholder="PASSWORD"><br>
+            <button class="item" (click)="login(accno,pswd)">Log In</button> -->
+
+            <input type="text" class="items" id="uname" #accno (change)="accChange($event)"  [value]="account" placeholder="USERNAME"><br>
+            <input type="password" class="items" id="pwd" #pswd (change)="pwdChange($event)"  placeholder="PASSWORD"><br>
             
-            <button class="item" (click)="login()">Log In</button>
+            <button class="item" (click)="login(accno,pswd)">Log In</button>
 
         </div>
         <div class="col-lg-4 col-sm-12"><h1><br><p>Luminar Bank</p></h1></div>
