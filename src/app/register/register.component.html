@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 first"><h1>WELCOME TO <br><p>Luminar Bank</p><span>we hold your money</span></h1></div>
+        <div class="col-lg-6 col-sm-12 main">
+            <h2>Create Account</h2><hr>
+            <form (ngSubmit)="register()">
+            <input type="text" class="items" id="username" name="uname" [(ngModel)]="uname" placeholder="User Name"><br>
+            <input type="text" class="items" id="accountnumber" name="acno" [(ngModel)]="acno" placeholder="Account Number"><br>
+            <input type="text" class="items" id="acctype" name="actype" [(ngModel)]="acctype" placeholder="Account Type"><br>
+            <input type="text" class="items" id="password" name="pwd" [(ngModel)]="pswd" placeholder="Password"> <br>
+            
+            <button class="item">SUBMIT</button>
+        </form>
+        </div>
+    </div>
+</div>

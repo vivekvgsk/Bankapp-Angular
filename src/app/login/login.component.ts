@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -7,55 +9,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 aim="WELCOME TO LUMINAR BANK";
-account="Please Enter your Account No";
-accno="";
+account="";
+accno="Please Enter your Account No";
 pwd="";
-  users:any = {
-    1000: { acno: 1000, username: "userone", password: "userone", actype: "savings", balance: 5000 },
-    1001: { acno: 1001, username: "usertwo", password: "usertwo", actype: "savings", balance: 6000 },
-    1002: { acno: 1002, username: "userthree", password: "userthree", actype: "savings", balance: 7000 },
-    1003: { acno: 1003, username: "userfour", password: "userfour", actype: "savings", balance: 8000 }
+  
 
-}
-
-  constructor() { }
+  constructor(private router: Router,private ds:DataService) { }
 
   ngOnInit(): void {
     
   }
-  accChange(event:any){
-    this.accno=event.target.value;
-    console.log(this.accno);
+  // accChange(event:any){
+  //   this.accno=event.target.value;
+  //   console.log(this.accno);
     
 
-  }
-  pwdChange(event:any){
-    this.pwd=event.target.value;
-    console.log(this.pwd);
-    
+  // }
+  // pwdChange(event:any){
+  //   this.pwd=event.target.value;
+  //   console.log(this.pwd);
+  
+  // }
 
-  }
-  //LOGIN USING TEMPLATE VARIABLE
-  login(a:any,p:any){
-    var acno=a.value;
-    var pswd=p.value;
-    var accDetails=this.users;
-    if (acno in accDetails){
-      if(pswd == accDetails[acno]["password"]){
+
+  login(){
+    var acno=this.accno;
+    var pswd=this.pwd;
+    var res=this.ds.login(acno,pswd)
+    
+    if(res){
+      
         alert("login successfull");
+        this.router.navigateByUrl("dashboard")
       }
-      else{
-        alert("invalid password");
-      }
+     
     
     }
-    else{
-      alert("invalid user");
-    }
+   
 
-    alert("login successful");
   }
-}
+  
+
+  //LOGIN USING TEMPLATE VARIABLE
+//   login(a:any,p:any){
+//     var acno=a.value;
+//     var pswd=p.value;
+//     var accDetails=this.users;
+//     if (acno in accDetails){
+//       if(pswd == accDetails[acno]["password"]){
+//         alert("login successfull");
+//       }
+//       else{
+//         alert("invalid password");
+//       }
+    
+//     }
+//     else{
+//       alert("invalid user");
+//     }
+
+//     alert("login successful");
+//   }
+// }
 
 
 //   login(){
